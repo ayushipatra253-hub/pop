@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Devyani</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffe4ec,#ffd6e8,#fff0f5,#ffe6f2);
+}
+
+/* Floating Balloons */
+
+.balloon{
+position:absolute;
+bottom:-150px;
+width:60px;
+height:80px;
+border-radius:50%;
+animation:floatUp linear infinite;
+opacity:.85;
+}
+
+.balloon::after{
+content:'';
+position:absolute;
+width:2px;
+height:70px;
+background:#666;
+left:50%;
+top:80px;
+}
+
+@keyframes floatUp{
+
+0%{
+transform:translateY(0);
+}
+
+100%{
+transform:translateY(-120vh);
+}
+
+}
+
+.b1{left:5%;background:#ff6b81;animation-duration:12s;}
+.b2{left:20%;background:#ffd93d;animation-duration:15s;}
+.b3{left:38%;background:#6bcBef;animation-duration:10s;}
+.b4{left:55%;background:#95e06c;animation-duration:13s;}
+.b5{left:72%;background:#c77dff;animation-duration:16s;}
+.b6{left:90%;background:#ff8fab;animation-duration:11s;}
+
+/* Button */
+
+button.main{
+padding:16px 35px;
+font-size:22px;
+border:none;
+border-radius:50px;
+background:#ff4d88;
+color:white;
+cursor:pointer;
+z-index:10;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+transition:.3s;
+}
+
+button.main:hover{
+transform:scale(1.08);
+}
+
+/* Popup */
+
+.popup{
+
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+background:white;
+padding:35px;
+border-radius:20px;
+text-align:center;
+width:420px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+transition:.4s;
+z-index:100;
+
+}
+
+.popup.active{
+transform:translate(-50%,-50%) scale(1);
+}
+
+.popup h1{
+color:#ff4d88;
+font-size:36px;
+margin-bottom:10px;
+}
+
+.popup h2{
+color:#666;
+margin-bottom:20px;
+}
+
+.popup p{
+font-size:22px;
+color:#ff4d88;
+font-weight:bold;
+}
+
+.close{
+
+margin-top:25px;
+padding:10px 25px;
+border:none;
+border-radius:25px;
+background:#ff4d88;
+color:white;
+cursor:pointer;
+
+}
+
+/* Fireworks */
+
+.firework{
+position:absolute;
+width:6px;
+height:6px;
+border-radius:50%;
+animation:explode 1.4s ease-out infinite;
+}
+
+@keyframes explode{
+
+0%{
+transform:scale(.2);
+opacity:1;
+}
+
+100%{
+transform:scale(25);
+opacity:0;
+}
+
+}
+
+.f1{
+top:20%;
+left:25%;
+background:#ff4081;
+animation-delay:0s;
+}
+
+.f2{
+top:35%;
+left:70%;
+background:#ffd93d;
+animation-delay:.5s;
+}
+
+.f3{
+top:15%;
+left:50%;
+background:#6bcBef;
+animation-delay:1s;
+}
+
+.f4{
+top:50%;
+left:15%;
+background:#95e06c;
+animation-delay:1.5s;
+}
+
+.f5{
+top:45%;
+left:85%;
+background:#c77dff;
+animation-delay:2s;
+}
+
+.emoji{
+font-size:50px;
+margin-bottom:15px;
+animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-12px);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Balloons -->
+
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+<div class="balloon b5"></div>
+<div class="balloon b6"></div>
+
+<!-- Fireworks -->
+
+<div class="firework f1"></div>
+<div class="firework f2"></div>
+<div class="firework f3"></div>
+<div class="firework f4"></div>
+<div class="firework f5"></div>
+
+<button class="main" onclick="showPopup()">🎁 Click Here</button>
+
+<div class="popup" id="popup">
+
+<div class="emoji">🎈🎂🎉</div>
+
+<h1>Happy Birthday Devyani!</h1>
+
+<h2>May your life always sparkle with happiness and love ❤️</h2>
+
+<p>⏳ Countdown: Day -10</p>
+
+<button class="close" onclick="closePopup()">Close</button>
+
+</div>
+
+<script>
+
+function showPopup(){
+document.getElementById("popup").classList.add("active");
+}
+
+function closePopup(){
+document.getElementById("popup").classList.remove("active");
+}
+
+</script>
+
+</body>
+</html>
